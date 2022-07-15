@@ -11,17 +11,24 @@ main{
     width: 100vw;
     height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: rgb(60, 23, 121, 0.9);
+}
+
+main h1{
+    margin-bottom: 20px;
+    margin-left: 20px;
 }
 
 main table{
-    width: 50vw;
+    width: 50vh;
     height: 50vh;
 }
 
-table tr td button{
-    background: #f00;
+main table tr td button{
+    background: rgba(255, 0, 0);
     width: 100%;
     height: 100%;
     font-size: 5rem;
