@@ -27,6 +27,11 @@ main table{
     height: 50vh;
 }
 
+main table tr{
+    width: 33%;
+    height: 33%;
+}
+
 main table tr td button{
     background: rgba(255, 0, 0);
     width: 100%;

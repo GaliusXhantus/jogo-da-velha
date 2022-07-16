@@ -1,6 +1,21 @@
-const button = document.querySelector('button')
+const buttons = document.querySelectorAll('button')
+let jogador = 'x';
 
-button.addEventListener('click', ()=>{
-    return console.log('hello')
-        
-})
+function mudarJogador(){
+    if (jogador === 'x'){
+        return jogador = 'o';
+    }
+    else {return jogador = 'x';}
+}
+
+
+function jogo(){
+    for (const button of buttons){
+        button.addEventListener('click', ()=> {
+            button.innerHTML = jogador;
+            mudarJogador();
+        });
+    };
+}
+
+jogo()
