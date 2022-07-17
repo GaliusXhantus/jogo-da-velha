@@ -1,4 +1,5 @@
-const buttons = document.querySelectorAll('button')
+const buttons = document.querySelectorAll('button');
+
 let jogador = 'x';
 
 function mudarJogador(){
