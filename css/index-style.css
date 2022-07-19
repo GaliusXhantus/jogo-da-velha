@@ -27,7 +27,7 @@ main table{
     height: 50vh;
 }
 
-main table tr{
+main table tr td{
     width: 33%;
     height: 33%;
 }
@@ -38,4 +38,12 @@ main table tr td button{
     height: 100%;
     font-size: 5rem;
     text-transform: uppercase;
+}
+
+main > button{
+    background: linear-gradient(to right,rgb(18 60 169 / 90%), rgb(12 173 36 / 90%));
+
+    width: 150px;
+    height: 30px;
+    border-radius: 20px;
 }
