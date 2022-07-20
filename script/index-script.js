@@ -1,7 +1,15 @@
+//import { arrayVencedor } from "./array-vencedor";
+
+
 const buttons = document.querySelectorAll('main table tr td button');
-const resetar = document.querrySelector('main button');
+const resetar = document.querySelector('main > button');
+const span = document.querySelector('main p span')
 
 let jogador = 'x';
+
+function mostrarJogador(){
+    return span.innerHTML = jogador;
+}
 
 function mudarJogador(){
     if (jogador === 'x'){
@@ -16,14 +24,21 @@ function resetarTela(event){
     })
 }
 
+//function vencedor(posicao){
+//    let arrayJogo = [buttons[posicao]];
+//
+//}
+
 function jogo(){
     for (const button of buttons){
         button.addEventListener('click', ()=> {
             button.innerHTML = jogador;
-            resetarTela(button);
             mudarJogador();
+            mostrarJogador();
+//            vencedor(button);
+            resetarTela(button);
         });
     };
 }
 
-jogo()
+jogo();
