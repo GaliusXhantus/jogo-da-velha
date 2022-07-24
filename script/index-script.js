@@ -1,4 +1,15 @@
-// import { arrayVencedor } from "./array-vencedor";
+//import { arrayVencedor } from "./array-vencedor";
+
+let arrayVencedor = [
+    [[0], [1], [2]],
+    [[3], [4], [5]],
+    [[6], [7], [8]],
+    [[0], [3], [6]],
+    [[1], [4], [7]],
+    [[2], [5], [8]],
+    [[0], [4], [8]],
+    [[2], [4], [6]]
+];
 
 
 const buttons = document.querySelectorAll('main table tr td button');
@@ -14,7 +25,7 @@ function mostrarJogador(event){
         mudarJogador();
     }
     else{
-        return false
+        return false;
     }
 }
 
@@ -40,13 +51,11 @@ function resetarTela(event){
 
 //function vencedor(){
 //
-//    if (buttons[1] === buttons[2] && buttons[2] === buttons[3]){
-//        return console.log('hello')
-//    }
-//    else{
-//        return false
-//    }
-//
+//    for (const array of arrayVencedor) {
+//        if (buttons[array[0]].innerHTML === buttons[array[1]].innerHTML && buttons){
+//            return console.log('hello');
+//        }
+//    };
 //}
 
 function jogo(){
@@ -54,7 +63,7 @@ function jogo(){
         button.addEventListener('click', ()=> {
             mostrarJogador(button);
             jogando();
-  //          vencedor();
+ //           vencedor();
             resetarTela(button);
         });
     };
