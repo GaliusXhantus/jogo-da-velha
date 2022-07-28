@@ -1,14 +1,14 @@
 //import { arrayVencedor } from "./array-vencedor";
 
-let arrayVencedor = [
-    [[0], [1], [2]],
-    [[3], [4], [5]],
-    [[6], [7], [8]],
-    [[0], [3], [6]],
-    [[1], [4], [7]],
-    [[2], [5], [8]],
-    [[0], [4], [8]],
-    [[2], [4], [6]]
+const arrayVencedor = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6]
 ];
 
 
@@ -20,18 +20,17 @@ let jogador = 'x';
 
 function mostrarJogador(event){
 
-    if(event.innerHTML === ''){
-        event.innerHTML = jogador;
-        mudarJogador();
-    }
-    else{
+    if (vencedor()){
         return false;
     }
-}
-
-function jogando(){
-
-        return span.innerHTML = jogador;        
+        
+    else{
+        if(event.innerHTML === ''){
+            event.innerHTML = jogador;
+            mudarJogador();
+            jogando();
+        }
+    }
 }
 
 function mudarJogador(){
@@ -43,27 +42,38 @@ function mudarJogador(){
     
 }
 
+function jogando(){
+
+        return span.innerHTML = jogador;        
+}
+
+
+
 function resetarTela(event){
     resetar.addEventListener('click', ()=>{
-        return(event.innerHTML = '');
+        event.innerHTML = '';
+        jogador = 'x';
+        jogando();
     })
 }
 
-//function vencedor(){
-//
-//    for (const array of arrayVencedor) {
-//        if (buttons[array[0]].innerHTML === buttons[array[1]].innerHTML && buttons){
-//            return console.log('hello');
-//        }
-//    };
-//}
+function vencedor(){
+
+    for (const array of arrayVencedor) {
+
+        if(buttons[array[0]].innerHTML !== '' && buttons[array[1]].innerHTML !== '' && buttons[array[2]].innerHTML !== ''){
+            if (buttons[array[0]].innerHTML === buttons[array[1]].innerHTML && buttons[array[1]].innerHTML === buttons[array[2]].innerHTML){
+                return true;
+            }
+
+        else { return false;}
+    }};
+}
 
 function jogo(){
     for (const button of buttons){
         button.addEventListener('click', ()=> {
             mostrarJogador(button);
-            jogando();
- //           vencedor();
             resetarTela(button);
         });
     };
