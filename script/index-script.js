@@ -20,21 +20,18 @@ let jogador = 'x';
 
 function mostrarJogador(event){
 
-    if (vencedor()){
-        return false;
-    }
-        
-    else{
-        if(event.innerHTML === ''){
-            event.innerHTML = jogador;
-            mudarJogador();
-            jogando();
-        }
+    if(event.innerHTML === ''){
+        event.innerHTML = jogador;
+        checarVencedor();
+        mudarJogador();
+        jogando();
     }
 }
 
+
 function mudarJogador(){
     
+
     if (jogador === 'x'){ 
         return jogador = 'o';
     }
@@ -59,15 +56,22 @@ function resetarTela(event){
 
 function vencedor(){
 
-    for (const array of arrayVencedor) {
+    let vencedor = arrayVencedor.some((array) =>{
+        return array.every( (linha) =>{
+            return buttons[linha].innerHTML.includes(jogador)
+        })
+    })
 
-        if(buttons[array[0]].innerHTML !== '' && buttons[array[1]].innerHTML !== '' && buttons[array[2]].innerHTML !== ''){
-            if (buttons[array[0]].innerHTML === buttons[array[1]].innerHTML && buttons[array[1]].innerHTML === buttons[array[2]].innerHTML){
-                return true;
-            }
+    return vencedor
+}
 
-        else { return false;}
-    }};
+function checarVencedor(){
+    if(vencedor()){
+        jogando();
+        alert(`${jogador} vencel`);
+    }else{
+        return false
+    }
 }
 
 function jogo(){
