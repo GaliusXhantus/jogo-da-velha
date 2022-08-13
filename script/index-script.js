@@ -1,5 +1,3 @@
-//import { arrayVencedor } from "./array-vencedor";
-
 const arrayVencedor = [
     [0, 1, 2],
     [3, 4, 5],
@@ -22,12 +20,11 @@ function mostrarJogador(event){
 
     if(event.innerHTML === ''){
         event.innerHTML = jogador;
-        checarVencedor();
         mudarJogador();
         jogando();
+        checarVencedor();
     }
 }
-
 
 function mudarJogador(){
     
@@ -44,8 +41,6 @@ function jogando(){
         return span.innerHTML = jogador;        
 }
 
-
-
 function resetarTela(event){
     resetar.addEventListener('click', ()=>{
         event.innerHTML = '';
@@ -58,19 +53,24 @@ function vencedor(){
 
     let vencedor = arrayVencedor.some((array) =>{
         return array.every( (linha) =>{
-            return buttons[linha].innerHTML.includes(jogador)
+            return buttons[linha].innerHTML.includes(jogador);
         })
     })
 
-    return vencedor
+    return vencedor;
+}
+
+function finalDoJogo(){
+    return buttons.forEach((button) =>{
+        button.innerHTML = '';
+    })
 }
 
 function checarVencedor(){
     if(vencedor()){
-        jogando();
-        alert(`${jogador} vencel`);
+        finalDoJogo();
     }else{
-        return false
+        return true;
     }
 }
 
