@@ -10,7 +10,7 @@ const arrayVencedor = [
 ];
 
 
-const buttons = document.querySelectorAll('main table tr td button');
+const buttons = document.querySelectorAll('.jogo section button');
 const resetar = document.querySelector('main > button');
 const span = document.querySelector('main p span');
 
